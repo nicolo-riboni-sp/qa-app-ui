@@ -13,6 +13,6 @@ From this application you can:
 - run 'nvm use'
 - run 'npm install'
 - run 'npm run dev'
-- application is available at http://http://127.0.0.1:8081/
+- application is available at http://127.0.0.1:8081/
 
 You can find the backend for this application here: https://github.com/nicolo-riboni-sp/qa-app-api
