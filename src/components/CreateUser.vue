@@ -11,12 +11,12 @@
         <input type="number" class="form-control" id="balance" required v-model="user.balance" name="balance" min=0 />
       </div>
 
-      <button @click="saveUser" class="btn btn-success">Submit</button>
+      <button @click="saveUser" class="btn btn-success" id="createUser">Submit</button>
     </div>
 
     <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newUser">Add</button>
+      <h4 id="successMessage">You submitted successfully!</h4>
+      <button class="btn btn-success" @click="newUser" id="newUser">Add</button>
     </div>
   </div>
 </template>
