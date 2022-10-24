@@ -1,23 +1,23 @@
 <template>
   <div v-if="currentUser" class="edit-form">
-    <h4>User</h4>
+    <h4 id="title">User</h4>
     <form>
       <div class="form-group">
         <label for="topup">Topup</label>
-        <input type="number" class="form-control" id="title" v-model="currentUser.topup" min=0 />
+        <input type="number" class="form-control" id="topup" v-model="currentUser.topup" min=0 />
       </div>
     </form>
 
-    <button type="submit" class="btn btn-sm btn-success" @click="updateUser">
+    <button type="submit" class="btn btn-sm btn-success" @click="updateUser" id="updateBalance">
       Add Balance
     </button>
-    <p>{{ message }}</p>
-    <router-link to="/users" class="btn btn-sm btn-warning">Go back to Users</router-link>
+    <p id="message">{{ message }}</p>
+    <router-link to="/users" class="btn btn-sm btn-warning" id="goBack">Go back to Users</router-link>
   </div>
 
   <div v-else>
     <br />
-    <p>Please click on a User...</p>
+    <p id="infoMessage">Please click on a User...</p>
   </div>
 </template>
 

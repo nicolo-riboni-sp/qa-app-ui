@@ -5,10 +5,10 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Users List</h4>
-      <ul class="list-group">
+      <h4 id="title">Users List</h4>
+      <ul class="list-group" id="userList">
         <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(user, index) in users"
-          :key="index" @click="setActiveUser(user, index)">
+          :key="index" @click="setActiveUser(user, index)" :id="'user-'+user.id">
           {{ user.name }}: {{ user.balance.toFixed(2) }}€
         </li>
       </ul>
@@ -17,32 +17,35 @@
       <div v-if="currentUser">
         <h4>User</h4>
         <div>
-          <label><strong>Name:</strong></label> {{ currentUser.name }}
+          <label><strong>Name:</strong></label> <span id="name">{{ currentUser.name }}</span>
         </div>
         <div>
-          <label><strong>Balance:</strong></label> {{ currentUser.balance.toFixed(2) }}€
+          <label><strong>Balance:</strong></label> <span id="balance">{{ currentUser.balance.toFixed(2) }}€</span>
         </div>
 
-        <router-link :to="'/users/' + currentUser.id" class="btn btn-sm btn-info">Add Balance</router-link>
-        <router-link :to="'/transfer/' + currentUser.id" class="btn btn-sm btn-warning">Make a transfer</router-link>
+        <router-link :to="'/users/' + currentUser.id" class="btn btn-sm btn-info" id="addBalance">Add Balance
+        </router-link>
+        <router-link :to="'/transfer/' + currentUser.id" class="btn btn-sm btn-warning" id="makeTransaction">Make a
+          transfer</router-link>
 
         <div v-if="transactions.length != 0" class="mt-5">
           <h5>{{ currentUser.name }}'s Transactions:</h5>
-          <ul class="list-group">
-            <li class="list-group-item" v-for="(transaction) in transactions" reverse>
-              From {{ users[transaction.sender -1 ].name }} to {{ users[transaction.receiver -1 ].name }} Amount: {{
-              transaction.amount.toFixed(2)}}€
+          <ul class="list-group" id="transactionList">
+            <li class="list-group-item" v-for="(transaction) in transactions" :id="'transaction-' + transaction.id">
+              From {{ users[transaction.sender - 1].name }} to {{ users[transaction.receiver - 1].name }} Amount: {{
+    transaction.amount.toFixed(2)
+              }}€
             </li>
           </ul>
         </div>
         <div v-else>
           <br />
-          <p>There are currently no transactions available for the current user</p>
+          <p id="transactionMessage">There are currently no transactions available for the current user</p>
         </div>
       </div>
       <div v-else>
         <br />
-        <p>Please click on a User...</p>
+        <p id="infoMessage">Please click on a User...</p>
       </div>
     </div>
   </div>

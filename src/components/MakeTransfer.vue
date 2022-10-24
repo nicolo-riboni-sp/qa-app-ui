@@ -1,11 +1,11 @@
 <template>
   <div v-if="currentUserID" class="edit-form">
-    <h4>Make transaction</h4>
+    <h4 id="title">Make transaction</h4>
     <form>
       <div class="form-group">
         <label for="receiver">Send money to:</label>
         <select id="receiver" class="form-control" v-model="transactionDetails.receiverID" name="receiver">
-          <option v-for="user in users" :value="user.id">
+          <option v-for="user in users" :value="user.id" :id="'receiver-' + user.id">
             {{ user.name }}
           </option>
         </select>
@@ -17,16 +17,16 @@
       </div>
     </form>
 
-    <button type="submit" class="btn btn-sm btn-success" @click="createTransaction">
+    <button type="submit" class="btn btn-sm btn-success" @click="createTransaction" id="createTransaction">
       Make Transaction
     </button>
-    <p>{{ message }}</p>
-    <router-link to="/users" class="btn btn-sm btn-warning">Go back to Users</router-link>
+    <p id="message">{{ message }}</p>
+    <router-link to="/users" class="btn btn-sm btn-warning" id="goBack">Go back to Users</router-link>
   </div>
 
   <div v-else>
     <br />
-    <p>Please click on a User...</p>
+    <p id="infoMessage">Please click on a User...</p>
   </div>
 </template>
 
