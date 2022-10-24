@@ -12,8 +12,8 @@
       </div>
       <div class="form-group">
         <label for="amount">Amount</label>
-        <input type="number" class="form-control" id="amount" required v-model="transactionDetails.amount"
-          name="amount" />
+        <input type="number" class="form-control" id="amount" required v-model="transactionDetails.amount" name="amount"
+          min=0 />
       </div>
     </form>
 

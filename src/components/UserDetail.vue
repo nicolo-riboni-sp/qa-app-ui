@@ -4,7 +4,7 @@
     <form>
       <div class="form-group">
         <label for="topup">Topup</label>
-        <input type="number" class="form-control" id="title" v-model="currentUser.topup" />
+        <input type="number" class="form-control" id="title" v-model="currentUser.topup" min=0 />
       </div>
     </form>
 

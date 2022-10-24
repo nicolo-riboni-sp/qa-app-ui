@@ -8,7 +8,7 @@
 
       <div class="form-group">
         <label for="balance">Balance</label>
-        <input type="number" class="form-control" id="balance" required v-model="user.balance" name="balance" />
+        <input type="number" class="form-control" id="balance" required v-model="user.balance" name="balance" min=0 />
       </div>
 
       <button @click="saveUser" class="btn btn-success">Submit</button>
