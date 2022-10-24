@@ -10,7 +10,7 @@ From this application you can:
 - make a transfer from an user to another one
 
 # Setup
-- run 'nvm use'
+- if you have nvm installed you can run 'nvm use', otherwise you need to install node version 16
 - run 'npm install'
 - run 'npm run dev'
 - application is available at http://127.0.0.1:8081/
